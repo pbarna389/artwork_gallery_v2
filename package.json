@@ -12,6 +12,8 @@
 		"lint:stylelint": "stylelint '**/*.{css,scss,sass,less}'",
 		"fix:eslint": "eslint . --fix",
 		"fix:stylelint": "stylelint '**/*.{css,scss,sass,less}' --fix",
+		"test": "vitest --run",
+		"coverage": "vitest run --coverage",
 		"preview": "vite preview",
 		"prepare": "husky"
 	},
@@ -37,6 +39,9 @@
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.21.0",
+		"@testing-library/dom": "^10.4.0",
+		"@testing-library/jest-dom": "^6.6.3",
+		"@testing-library/react": "^16.2.0",
 		"@types/react": "^19.0.10",
 		"@types/react-dom": "^19.0.4",
 		"@vitejs/plugin-react": "^4.3.4",
@@ -47,6 +52,7 @@
 		"eslint-plugin-react-refresh": "^0.4.19",
 		"globals": "^15.15.0",
 		"husky": "^9.1.7",
+		"jsdom": "^26.0.0",
 		"lint-staged": "^15.4.3",
 		"stylelint": "^16.14.1",
 		"stylelint-config-standard": "^37.0.0",
@@ -54,6 +60,7 @@
 		"stylelint-scss": "^6.11.1",
 		"typescript": "~5.7.2",
 		"typescript-eslint": "^8.24.1",
-		"vite": "^6.2.0"
+		"vite": "^6.2.0",
+		"vitest": "^3.0.8"
 	}
 }

@@ -1,5 +1,3 @@
-import './App.css'
-
 function App() {
 	return <div className="flex">The App will be here</div>
 }
