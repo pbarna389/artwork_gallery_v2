@@ -37,6 +37,6 @@
 			"@types": ["./types"]
 		}
 	},
-	"include": ["src", "vite.config.ts", "testSetup.ts"],
+	"include": ["src", "vite.config.ts", "src/testSetup.ts"],
 	"exclude": ["node_modules", "dist"]
 }
