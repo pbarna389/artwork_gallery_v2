@@ -20,7 +20,8 @@
 	"lint-staged": {
 		"**/*.{js,ts,jsx,tsx}": [
 			"npm run fix:eslint",
-			"npm run lint:eslint"
+			"npm run lint:eslint",
+			"vitest run --coverage"
 		],
 		"**/*.{css,scss}": [
 			"npm run fix:stylelint",
@@ -49,6 +50,7 @@
 		"@types/react": "^19.0.10",
 		"@types/react-dom": "^19.0.4",
 		"@vitejs/plugin-react": "^4.3.4",
+		"@vitest/coverage-v8": "^3.0.8",
 		"@vitest/eslint-plugin": "^1.1.37",
 		"eslint": "^9.21.0",
 		"eslint-config-prettier": "^9.1.0",
