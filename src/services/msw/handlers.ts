@@ -1,7 +1,6 @@
 import { http, HttpResponse } from 'msw'
 
 /**
- * @remarks
  * This is the handler for outgoing requests for unit tests
  * @returns an array with predefined get requests
  */
