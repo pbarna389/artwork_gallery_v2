@@ -6,8 +6,8 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc -b && vite build",
-		"lint:eslint": "eslint .",
-		"lint:stylelint": "stylelint '**/*.{css,scss,sass,less}'",
+		"eslint": "eslint .",
+		"stylelint": "stylelint '**/*.{css,scss,sass,less}'",
 		"fix:eslint": "eslint . --fix",
 		"fix:stylelint": "stylelint '**/*.{css,scss,sass,less}' --fix",
 		"test": "vitest --run",
@@ -18,11 +18,11 @@
 	"lint-staged": {
 		"**/*.{js,ts,jsx,tsx}": [
 			"npm run fix:eslint",
-			"npm run lint:eslint"
+			"npm run eslint"
 		],
 		"**/*.{css,scss}": [
 			"npm run fix:stylelint",
-			"npm run lint:stylelint"
+			"npm run stylelint"
 		]
 	},
 	"dependencies": {
