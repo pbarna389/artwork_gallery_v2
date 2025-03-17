@@ -19,11 +19,13 @@ dist-ssr
 .eslintrc.yml
 eslint.json
 eslint.config.js
+eslint.test.config.js
 .stylelintrc.json
 
 # Editor directories and files
 .env
 .vscode/*
+coverage
 !.vscode/extensions.json
 .idea
 .DS_Store
