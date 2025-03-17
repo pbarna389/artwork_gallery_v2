@@ -1,15 +1,15 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen } from '@testing-library/react'
 
-import App from "./App";
+import App from './App'
 
-describe("app component tests", () => {
-  it("should render the App component", async () => {
-    expect.hasAssertions();
+describe('app component tests', () => {
+	it('should render the App component', async () => {
+		expect.hasAssertions()
 
-    render(<App />);
+		render(<App />)
 
-    const component = await screen.findByText("The App will be here");
+		const component = await screen.findByText('Home')
 
-    expect(component).toBeInTheDocument();
-  });
-});
+		expect(component).toBeInTheDocument()
+	})
+})

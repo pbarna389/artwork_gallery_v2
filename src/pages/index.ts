@@ -1,0 +1,7 @@
+export { Agents, agentsRoute } from './Agents'
+export { Artworks, artworksRoute } from './Artworks'
+export { Collections, collectionsRoute } from './Collections'
+export { Exhibitions, exhibtionsRoute } from './Exhibitions'
+export { Galleries, galleriesRoute } from './Galleries'
+export { Home, homeRoutes } from './Home'
+export { Places, placesRoute } from './Places'

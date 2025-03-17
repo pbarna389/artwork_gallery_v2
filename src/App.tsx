@@ -1,5 +1,11 @@
+import { Outlet } from 'react-router'
+
 function App() {
-	return <div className="flex">The App will be here</div>
+	return (
+		<div className="flex">
+			<Outlet />
+		</div>
+	)
 }
 
 export default App
