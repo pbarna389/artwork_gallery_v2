@@ -1,12 +1,12 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 
-import App from './App'
+import { renderWrapper } from '@utils'
 
 describe('app component tests', () => {
 	it('should render the App component', async () => {
 		expect.hasAssertions()
 
-		render(<App />)
+		renderWrapper()
 
 		const component = await screen.findByText('Home')
 

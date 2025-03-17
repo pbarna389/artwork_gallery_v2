@@ -32,7 +32,8 @@
 			"@pages": ["./pages"],
 			"@router": ["./router"],
 			"@services": ["./services"],
-			"@types": ["./types"]
+			"@types": ["./types"],
+			"@utils": ["./utils"]
 		}
 	},
 	"include": ["src", "vite.config.ts", "testSetup.ts"],
