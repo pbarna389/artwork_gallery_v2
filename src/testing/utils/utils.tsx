@@ -2,9 +2,9 @@ import { createMemoryRouter, RouterProvider } from 'react-router'
 
 import { router } from '@router'
 
-export function UTTestWrapper() {
+export function UTRouterWrapper({ initialEntry }: { initialEntry: string }) {
 	const testRouter = createMemoryRouter(router.routes, {
-		initialEntries: ['/']
+		initialEntries: [initialEntry]
 	})
 
 	return <RouterProvider router={testRouter} />

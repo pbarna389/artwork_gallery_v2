@@ -33,7 +33,8 @@
 			"@router": ["./router"],
 			"@services": ["./services"],
 			"@types": ["./types"],
-			"@utils": ["./utils"]
+			"@utils": ["./utils"],
+			"@testing": ["./testing"]
 		}
 	},
 	"include": ["src", "vite.config.ts", "testSetup.ts"],

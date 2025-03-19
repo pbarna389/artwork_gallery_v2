@@ -1,5 +1,8 @@
 import type { RouteObject } from 'react-router'
 
+import { Collections } from './Collections'
+
 export const collectionsRoute: RouteObject = {
-	path: '/collections'
+	path: '/collections',
+	element: <Collections />
 }

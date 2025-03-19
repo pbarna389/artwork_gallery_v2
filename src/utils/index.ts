@@ -1,1 +1,0 @@
-export { renderWrapper } from './renderWrapper'

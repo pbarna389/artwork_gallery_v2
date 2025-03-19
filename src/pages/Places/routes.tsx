@@ -1,5 +1,8 @@
 import type { RouteObject } from 'react-router'
 
+import { Places } from './Places'
+
 export const placesRoute: RouteObject = {
-	path: '/places'
+	path: '/places',
+	element: <Places />
 }
