@@ -1,1 +1,1 @@
-export { routes } from './constants'
+export { API_ENDPOINT, routes } from './constants'

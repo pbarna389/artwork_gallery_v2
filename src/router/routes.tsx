@@ -5,7 +5,6 @@ import App from 'App'
 import {
 	agentsRoute,
 	artworksRoute,
-	collectionsRoute,
 	exhibtionsRoute,
 	galleriesRoute,
 	homeRoutes,
@@ -19,7 +18,6 @@ export const router = createBrowserRouter([
 			{ ...homeRoutes },
 			{ ...agentsRoute },
 			{ ...artworksRoute },
-			{ ...collectionsRoute },
 			{ ...exhibtionsRoute },
 			{ ...galleriesRoute },
 			{ ...placesRoute }

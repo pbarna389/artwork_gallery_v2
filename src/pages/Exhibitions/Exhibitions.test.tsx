@@ -1,12 +1,23 @@
 import { screen } from '@testing-library/react'
 
-import { baseMocks, renderWrapper } from '@testing'
+import { baseMocks, renderWrapper, testQuery } from '@testing'
 
-describe('app component tests', () => {
-	it('should render the App component', async () => {
+const { exhibitions } = baseMocks
+
+vi.stubGlobal(
+	'fetch',
+	vi.fn(() =>
+		Promise.resolve({
+			json: async () => {
+				return { data: exhibitions.testQueryMessage }
+			}
+		})
+	)
+)
+
+describe('places component tests', () => {
+	it('should render the Places component', async () => {
 		expect.hasAssertions()
-
-		const { exhibitions } = baseMocks
 
 		renderWrapper({ initialEntry: exhibitions.initialRoute })
 
@@ -15,5 +26,17 @@ describe('app component tests', () => {
 		expect(component).toBeInTheDocument()
 
 		expect(component).toHaveTextContent(exhibitions.testWord)
+
+		await new Promise((r) => setTimeout(r, 1000))
+
+		const cachedData:
+			| {
+					pageParams: number[]
+					pages: { data: string }[]
+			  }
+			| undefined = testQuery.getQueryData(['exhibitions'])
+		console.log('Cached Data:', cachedData)
+
+		expect(cachedData?.pages[0].data).toBe(exhibitions.testQueryMessage)
 	})
 })

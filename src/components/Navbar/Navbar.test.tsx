@@ -10,7 +10,9 @@ describe('app component tests', () => {
 
 		const { app } = baseMocks
 
-		const convertedRoutes = routes.map((el) => (el === 'Home' ? '/' : `/${el.toLocaleLowerCase()}`))
+		const convertedRoutes = routes.map((el) =>
+			el === 'Home' ? '/' : `/${el.toLocaleLowerCase()}`
+		)
 
 		renderWrapper({ initialEntry: app.initialRoute })
 
@@ -19,7 +21,8 @@ describe('app component tests', () => {
 		expect(links.length).toBeGreaterThan(0)
 
 		const hrefs = links.map((link) => {
-			const currentLink = link.getAttribute('href') === 'Home' ? '' : link.getAttribute('href')
+			const currentLink =
+				link.getAttribute('href') === 'Home' ? '' : link.getAttribute('href')
 
 			return `${currentLink?.toLocaleLowerCase()}`
 		})

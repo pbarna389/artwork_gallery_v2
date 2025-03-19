@@ -6,6 +6,9 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 // https://vite.dev/config/
 export default defineConfig({
 	plugins: [react(), tailwindcss(), tsconfigPaths()],
+	optimizeDeps: {
+		include: ['msw']
+	},
 	test: {
 		globals: true,
 		environment: 'jsdom',

@@ -1,0 +1,1 @@
+export { useLoadInfiniteData } from './useLoadInfiniteData'

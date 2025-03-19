@@ -5,26 +5,27 @@ export const baseMocks = {
 	},
 	agents: {
 		initialRoute: '/agents',
-		testWord: 'Agents'
+		testWord: 'Agents',
+		testQueryMessage: 'mocked data will come here for the agents endpoint'
 	},
 	artworks: {
 		initialRoute: '/artworks',
-		testWord: 'Artworks'
-	},
-	collections: {
-		initialRoute: '/collections',
-		testWord: 'Collections'
+		testWord: 'Artworks',
+		testQueryMessage: 'mocked data will come here for the artworks endpoint'
 	},
 	exhibitions: {
 		initialRoute: '/exhibitions',
-		testWord: 'Exhibitions'
+		testWord: 'Exhibitions',
+		testQueryMessage: 'mocked data will come here for the exhibitions endpoint'
 	},
 	galleries: {
 		initialRoute: '/galleries',
-		testWord: 'Galleries'
+		testWord: 'Galleries',
+		testQueryMessage: 'mocked data will come here for the galleries endpoint'
 	},
 	places: {
 		initialRoute: '/places',
-		testWord: 'Places'
+		testWord: 'Places',
+		testQueryMessage: 'mocked data will come here for the places endpoint'
 	}
 }
