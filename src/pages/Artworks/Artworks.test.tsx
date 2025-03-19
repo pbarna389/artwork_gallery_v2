@@ -10,8 +10,10 @@ describe('app component tests', () => {
 
 		renderWrapper({ initialEntry: artworks.initialRoute })
 
-		const component = await screen.findByText(artworks.testWord)
+		const component = screen.getByRole('heading', { level: 1 })
 
 		expect(component).toBeInTheDocument()
+
+		expect(component).toHaveTextContent(artworks.testWord)
 	})
 })

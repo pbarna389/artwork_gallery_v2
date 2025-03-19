@@ -1,15 +1,29 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/dom'
 
-import { Navbar } from './Navbar'
+import { baseMocks, renderWrapper } from '@testing'
+
+import { routes } from '@constants'
 
 describe('app component tests', () => {
 	it('should render the App component', async () => {
 		expect.hasAssertions()
 
-		render(<Navbar />)
+		const { app } = baseMocks
 
-		const component = await screen.findByText('Navbar')
+		const convertedRoutes = routes.map((el) => (el === 'Home' ? '/' : `/${el.toLocaleLowerCase()}`))
 
-		expect(component).toBeInTheDocument()
+		renderWrapper({ initialEntry: app.initialRoute })
+
+		const links = screen.getAllByRole('link')
+
+		expect(links.length).toBeGreaterThan(0)
+
+		const hrefs = links.map((link) => {
+			const currentLink = link.getAttribute('href') === 'Home' ? '' : link.getAttribute('href')
+
+			return `${currentLink?.toLocaleLowerCase()}`
+		})
+
+		expect(hrefs).toStrictEqual(convertedRoutes)
 	})
 })
