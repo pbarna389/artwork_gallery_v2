@@ -17,7 +17,16 @@ export default defineConfig({
 				branches: 60,
 				lines: 75
 			},
-			exclude: ['src/main.tsx', 'src/router/**', '**/*.config.js', '**/*.config.ts']
+			exclude: [
+				'src/main.tsx',
+				'src/router/**',
+				'**/*.config.js',
+				'**/*.config.ts',
+				'**/index.ts',
+				'**/type.ts',
+				'**/index.ts',
+				'**/*.d.ts'
+			]
 		}
 	}
 })

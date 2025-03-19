@@ -6,11 +6,11 @@ describe('app component tests', () => {
 	it('should render the App component', async () => {
 		expect.hasAssertions()
 
-		const { app } = baseMocks
+		const { agents } = baseMocks
 
-		renderWrapper({ initialEntry: app.initialRoute })
+		renderWrapper({ initialEntry: agents.initialRoute })
 
-		const component = await screen.findByText(app.testWord)
+		const component = await screen.findByText(agents.testWord)
 
 		expect(component).toBeInTheDocument()
 	})

@@ -1,0 +1,1 @@
+export { baseMocks } from './mocks'
