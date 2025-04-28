@@ -11,11 +11,11 @@ export const useLoadInfiniteData = <DataType extends { pagination: PaginationTyp
 		DataType,
 		Error,
 		InfiniteData<DataType, number>,
-		unknown[],
+		string[],
 		number
 	>({
 		queryKey: [queryKey],
-		queryFn: () => fetchData(queryKey),
+		queryFn: ({ pageParam }) => fetchData(queryKey, pageParam),
 		initialPageParam: 1,
 		getNextPageParam: (lastPage) => {
 			return lastPage.pagination.current_page

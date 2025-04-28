@@ -1,1 +1,6 @@
-export type { ArtworkType, IncomingDataType, PaginationType } from './models'
+export type {
+	ArtworkType,
+	ExhibitionType,
+	IncomingDataType,
+	PaginationType
+} from './models'

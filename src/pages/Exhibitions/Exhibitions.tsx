@@ -1,7 +1,8 @@
 import { useLoadInfiniteData } from '@hooks'
+import type { ExhibitionType, IncomingDataType } from '@types'
 
 export const Exhibitions = () => {
-	const { data } = useLoadInfiniteData('exhibitions')
+	const { data } = useLoadInfiniteData<IncomingDataType<ExhibitionType>>('exhibitions')
 
 	console.log(data)
 

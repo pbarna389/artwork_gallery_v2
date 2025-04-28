@@ -1,5 +1,5 @@
 export type ArrayTypes<KeyTypes extends string, DataTypes> = {
-	[key in KeyTypes]: DataTypes
+	[key in KeyTypes]: DataTypes[]
 }
 
 type StringArrayKeyNames =
@@ -38,13 +38,22 @@ type StringArrayKeyNames =
 	| 'video_ids'
 	| 'groupings'
 	| 'inputs'
+	| 'artwork_titles'
 
-type NumberArrayKeyNames = 'artits_ids'
+type NumberArrayKeyNames =
+	| 'artits_ids'
+	| 'alt_image_ids'
+	| 'artist_ids'
+	| 'artwork_ids'
+	| 'document_ids'
+	| 'site_ids'
 
-export type StringArrayTypes = ArrayTypes<StringArrayKeyNames, string[]>
-export type NumnberArrayTypes = ArrayTypes<NumberArrayKeyNames, number>
+export type StringArrayTypes = ArrayTypes<StringArrayKeyNames, string>
+export type NumberArrayTypes = ArrayTypes<NumberArrayKeyNames, number>
 
 export type StringTypes = {
+	aic_end_at: string
+	aic_start_at: string
 	api_link: string
 	api_model: string
 	artist_display: string
@@ -64,7 +73,7 @@ export type StringTypes = {
 	exhibition_history: string | null
 	gallery_title: string | null
 	iiif_url: string
-	image_id: string | null
+	image_url: string
 	inscriptions: string
 	latlon: string | null
 	license_text: string
@@ -80,6 +89,7 @@ export type StringTypes = {
 	publishing_verification_level: string
 	short_description: string
 	source_updated_at: string
+	status: string
 	style_id: string
 	technique_id: string | null
 	thumbnail: string | null
@@ -87,6 +97,7 @@ export type StringTypes = {
 	title: string
 	updated_at: string
 	version: string
+	web_url: string
 	website_url: string
 }
 
@@ -108,6 +119,7 @@ export type NumberTypes = {
 	h: number
 	height: number
 	id: number
+	image_id: number
 	internal_department_id: number
 	l: number
 	latitude: number | null
@@ -117,6 +129,7 @@ export type NumberTypes = {
 	offset: number
 	percentage: number
 	population: number
+	position: number
 	s: number
 	total: number
 	total_pages: number
@@ -129,6 +142,7 @@ export type BooleanTypes = {
 	has_multimedia_resources: boolean
 	has_not_been_viewed_much: boolean
 	is_boosted: boolean
+	is_features: boolean
 	is_on_view: boolean
 	is_public_domain: boolean
 	is_zoomable: boolean
