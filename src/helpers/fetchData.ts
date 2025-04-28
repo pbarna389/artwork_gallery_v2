@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
 import { API_ENDPOINT } from '@constants'
 
 export const fetchData = async <Data>(params: string, pageNum = 1): Promise<Data> => {
