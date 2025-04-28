@@ -1,4 +1,5 @@
 import type {
+	BooleanTypes,
 	NumberArrayTypes,
 	NumberTypes,
 	OriginalTypes,
@@ -95,6 +96,16 @@ type ArtworkNumberTypes =
 	| 'longitude'
 	| 'max_zoom_window_size'
 
+type ArtworkBooleanTypes =
+	| 'has_advanced_imaging'
+	| 'has_educational_resources'
+	| 'has_multimedia_resources'
+	| 'has_not_been_viewed_much'
+	| 'is_boosted'
+	| 'is_on_view'
+	| 'is_public_domain'
+	| 'is_zoomable'
+
 type ExhibtionStringArrays = 'artwork_titles'
 
 type ExibitionStringTypes =
@@ -120,18 +131,35 @@ type ExhibitionNumberArrays =
 	| 'document_ids'
 
 type ExhibitionNumberTypes = 'id' | 'position'
+type ExhibitionBooleanTypes = 'is_featured'
+
+type GalleryStringTypes =
+	| 'api_link'
+	| 'api_model'
+	| 'floor'
+	| 'latlon'
+	| 'updated_at'
+	| 'number'
+type GalleryNumberTypes = 'id' | 'latitude' | 'longitude' | 'tgn_id'
+type GalleryBooleanTypes = 'is_closed'
 
 export type ArtworkType = Pick<StringArrayTypes, ArtworkStringArrays> &
 	Pick<StringTypes, ArtworkStringTypes> &
 	Pick<NumberArrayTypes, ArtworkNumberArrays> &
 	Pick<NumberTypes, ArtworkNumberTypes> &
+	Pick<BooleanTypes, ArtworkBooleanTypes> &
 	OriginalTypes
 
 export type ExhibitionType = Pick<StringArrayTypes, ExhibtionStringArrays> &
 	Pick<StringTypes, ExibitionStringTypes> &
 	Pick<NumberArrayTypes, ExhibitionNumberArrays> &
 	Pick<NumberTypes, ExhibitionNumberTypes> &
+	Pick<BooleanTypes, ExhibitionBooleanTypes> &
 	OriginalTypes
+
+export type GalleryType = Pick<StringTypes, GalleryStringTypes> &
+	Pick<NumberTypes, GalleryNumberTypes> &
+	Pick<BooleanTypes, GalleryBooleanTypes>
 
 export type ConfigType = Pick<StringTypes, 'iiif_url' | 'website_url'>
 

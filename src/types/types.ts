@@ -37,6 +37,7 @@ type StringArrayKeyNames =
 	| 'updated_at'
 	| 'video_ids'
 	| 'groupings'
+	| 'input'
 	| 'inputs'
 	| 'artwork_titles'
 
@@ -71,6 +72,7 @@ export type StringTypes = {
 	dimensions: string
 	edition: string | null
 	exhibition_history: string | null
+	floor: string
 	gallery_title: string | null
 	iiif_url: string
 	image_url: string
@@ -82,6 +84,7 @@ export type StringTypes = {
 	medium_display: string
 	next_url: string
 	nomisma_id: string | null
+	number: number
 	on_loan_display: string | null
 	place_of_origin: string
 	provenance_text: string | null
@@ -131,6 +134,7 @@ export type NumberTypes = {
 	population: number
 	position: number
 	s: number
+	tgn_id: number
 	total: number
 	total_pages: number
 	width: number
@@ -142,7 +146,8 @@ export type BooleanTypes = {
 	has_multimedia_resources: boolean
 	has_not_been_viewed_much: boolean
 	is_boosted: boolean
-	is_features: boolean
+	is_closed: boolean
+	is_featured: boolean
 	is_on_view: boolean
 	is_public_domain: boolean
 	is_zoomable: boolean
@@ -156,7 +161,8 @@ export type OriginalTypes = {
 	suggest_autocomplete_all?: Partial<
 		{
 			contexts: Pick<StringArrayTypes, 'groupings'>
-			weight?: number
+			input: Pick<StringArrayTypes, 'input'>
+			weight: number
 		} & Pick<StringArrayTypes, 'inputs'>
 	>[]
 }
