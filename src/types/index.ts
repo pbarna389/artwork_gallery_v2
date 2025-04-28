@@ -1,4 +1,5 @@
 export type {
+	AgentType,
 	ArtworkType,
 	ExhibitionType,
 	GalleryType,

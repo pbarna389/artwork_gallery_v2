@@ -91,6 +91,7 @@ export type StringTypes = {
 	publication_history: string
 	publishing_verification_level: string
 	short_description: string
+	sort_title: string
 	source_updated_at: string
 	status: string
 	style_id: string
@@ -107,6 +108,7 @@ export type StringTypes = {
 export type NumberTypes = {
 	artist_id: number
 	artwork_type_id: number
+	birth_date: number
 	boost_rank: number | null
 	clarification: number
 	colorfulness: number | null
@@ -114,6 +116,7 @@ export type NumberTypes = {
 	date_end: number
 	date_qualifier_id: number
 	date_start: number
+	death_date: number
 	depth: number
 	diameter: number
 	fiscal_year: number
@@ -137,6 +140,7 @@ export type NumberTypes = {
 	tgn_id: number
 	total: number
 	total_pages: number
+	ulan_id: number
 	width: number
 }
 
@@ -145,6 +149,7 @@ export type BooleanTypes = {
 	has_educational_resources: boolean
 	has_multimedia_resources: boolean
 	has_not_been_viewed_much: boolean
+	is_artist: number
 	is_boosted: boolean
 	is_closed: boolean
 	is_featured: boolean

@@ -39,7 +39,6 @@ type ArtworkStringArrays =
 	| 'text_ids'
 	| 'theme-titles'
 	| 'video_ids'
-
 type ArtworkStringTypes =
 	| 'api_link'
 	| 'api_model'
@@ -76,9 +75,7 @@ type ArtworkStringTypes =
 	| 'title'
 	| 'updated_at'
 	| 'timestamp'
-
 type ArtworkNumberArrays = 'artits_ids'
-
 type ArtworkNumberTypes =
 	| 'artist_id'
 	| 'artwork_type_id'
@@ -95,7 +92,6 @@ type ArtworkNumberTypes =
 	| 'latitude'
 	| 'longitude'
 	| 'max_zoom_window_size'
-
 type ArtworkBooleanTypes =
 	| 'has_advanced_imaging'
 	| 'has_educational_resources'
@@ -107,7 +103,6 @@ type ArtworkBooleanTypes =
 	| 'is_zoomable'
 
 type ExhibtionStringArrays = 'artwork_titles'
-
 type ExibitionStringTypes =
 	| 'gallery_title'
 	| 'aic_end_at'
@@ -122,14 +117,12 @@ type ExibitionStringTypes =
 	| 'title'
 	| 'updated_at'
 	| 'web_url'
-
 type ExhibitionNumberArrays =
 	| 'alt_image_ids'
 	| 'artist_ids'
 	| 'artwork_ids'
 	| 'site_ids'
 	| 'document_ids'
-
 type ExhibitionNumberTypes = 'id' | 'position'
 type ExhibitionBooleanTypes = 'is_featured'
 
@@ -142,6 +135,19 @@ type GalleryStringTypes =
 	| 'number'
 type GalleryNumberTypes = 'id' | 'latitude' | 'longitude' | 'tgn_id'
 type GalleryBooleanTypes = 'is_closed'
+
+type AgentStringArrays = 'alt_titles'
+type AgentStringTypes =
+	| 'api_link'
+	| 'api_model'
+	| 'description'
+	| 'sort_title'
+	| 'source_updated_at'
+	| 'timestamp'
+	| 'title'
+	| 'updated_at'
+type AgentNumberTypes = 'birth_date' | 'death_date' | 'id' | 'ulan_id'
+type AgentBooleanTypes = 'is_artist'
 
 export type ArtworkType = Pick<StringArrayTypes, ArtworkStringArrays> &
 	Pick<StringTypes, ArtworkStringTypes> &
@@ -160,6 +166,12 @@ export type ExhibitionType = Pick<StringArrayTypes, ExhibtionStringArrays> &
 export type GalleryType = Pick<StringTypes, GalleryStringTypes> &
 	Pick<NumberTypes, GalleryNumberTypes> &
 	Pick<BooleanTypes, GalleryBooleanTypes>
+
+export type AgentType = Pick<StringArrayTypes, AgentStringArrays> &
+	Pick<StringTypes, AgentStringTypes> &
+	Pick<NumberTypes, AgentNumberTypes> &
+	Pick<BooleanTypes, AgentBooleanTypes> &
+	OriginalTypes
 
 export type ConfigType = Pick<StringTypes, 'iiif_url' | 'website_url'>
 
