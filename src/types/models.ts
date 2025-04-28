@@ -149,6 +149,18 @@ type AgentStringTypes =
 type AgentNumberTypes = 'birth_date' | 'death_date' | 'id' | 'ulan_id'
 type AgentBooleanTypes = 'is_artist'
 
+type PlacesStringTypes =
+	| 'api_link'
+	| 'api_model'
+	| 'source_updated_at'
+	| 'timestamp'
+	| 'title'
+	| 'updated_at'
+type PlacesNumberTypes = 'id' | 'tgn_id'
+
+export type PlacesType = Pick<StringTypes, PlacesStringTypes> &
+	Pick<NumberTypes, PlacesNumberTypes>
+
 export type ArtworkType = Pick<StringArrayTypes, ArtworkStringArrays> &
 	Pick<StringTypes, ArtworkStringTypes> &
 	Pick<NumberArrayTypes, ArtworkNumberArrays> &

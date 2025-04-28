@@ -4,5 +4,6 @@ export type {
 	ExhibitionType,
 	GalleryType,
 	IncomingDataType,
-	PaginationType
+	PaginationType,
+	PlacesType
 } from './models'

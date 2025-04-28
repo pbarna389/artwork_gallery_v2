@@ -1,10 +1,14 @@
+import { PageLoading } from '@components'
 import { useLoadInfiniteData } from '@hooks'
 import type { GalleryType, IncomingDataType } from '@types'
 
 export const Galleries = () => {
-	const { data } = useLoadInfiniteData<IncomingDataType<GalleryType>>('galleries')
+	const { data, isFetching } =
+		useLoadInfiniteData<IncomingDataType<GalleryType>>('galleries')
 
-	console.log(data?.pages[0].data[0])
+	console.log(data)
+
+	if (isFetching) return <PageLoading />
 
 	return <h1>Galleries</h1>
 }

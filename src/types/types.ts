@@ -137,7 +137,7 @@ export type NumberTypes = {
 	population: number
 	position: number
 	s: number
-	tgn_id: number
+	tgn_id: number | null
 	total: number
 	total_pages: number
 	ulan_id: number
