@@ -1,2 +1,3 @@
 export { baseMocks } from './mocks'
-export { renderWrapper, testQuery } from './utils'
+export { testQuery } from './services'
+export { renderWrapper } from './utils'
