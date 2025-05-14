@@ -4,8 +4,6 @@ import { useInfiniteQuery } from '@tanstack/react-query'
 import { fetchData } from '@helpers'
 import type { PaginationType } from '@types'
 
-//FIXME - INTERCHANGE TO USESUSPENSEINFINITEQUERY
-
 export const useLoadInfiniteData = <DataType extends { pagination: PaginationType }>(
 	queryKey: string,
 	fields: string[]
@@ -21,7 +19,7 @@ export const useLoadInfiniteData = <DataType extends { pagination: PaginationTyp
 		queryFn: ({ pageParam }) => fetchData(queryKey, fields, pageParam),
 		initialPageParam: 1,
 		getNextPageParam: (lastPage) => {
-			return lastPage.pagination.current_page
+			return lastPage.pagination.current_page + 1
 		}
 	})
 

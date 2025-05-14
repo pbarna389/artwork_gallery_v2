@@ -13,9 +13,18 @@ export const Galleries = () => {
 		queryFields
 	)
 
-	console.log(data)
-
 	if (isFetching) return <PageLoading />
 
-	return <h1>Galleries</h1>
+	const galleriesData: InfiniteGallery[] = []
+
+	data?.pages.forEach((el) => galleriesData.push(...el.data))
+
+	return (
+		<div>
+			<h1>Galleries</h1>
+			{galleriesData.map((el) => (
+				<p key={el.id}>{el.title}</p>
+			))}
+		</div>
+	)
 }

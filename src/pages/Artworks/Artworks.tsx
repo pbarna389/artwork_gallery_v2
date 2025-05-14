@@ -19,5 +19,12 @@ export const Artworks = () => {
 
 	data?.pages.forEach((el) => artworkData.push(...el.data))
 
-	return artworkData.map((el) => <p key={el.id}>{el.title}</p>)
+	return (
+		<div>
+			<h1>Artworks</h1>
+			{artworkData.map((el) => (
+				<p key={el.id}>{el.title}</p>
+			))}
+		</div>
+	)
 }

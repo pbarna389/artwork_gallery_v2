@@ -13,9 +13,18 @@ export const Exhibitions = () => {
 		queryParams
 	)
 
-	console.log(data)
-
 	if (isFetching) return <PageLoading />
 
-	return <h1>Exhibitions</h1>
+	const exhibitionsData: InfiniteExhibition[] = []
+
+	data?.pages.forEach((el) => exhibitionsData.push(...el.data))
+
+	return (
+		<div>
+			<h1>Exhibitions</h1>
+			{exhibitionsData.map((el) => (
+				<p key={el.id}>{el.title}</p>
+			))}
+		</div>
+	)
 }

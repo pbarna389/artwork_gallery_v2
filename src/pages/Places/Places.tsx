@@ -15,5 +15,16 @@ export const Places = () => {
 
 	if (isFetching) return <PageLoading />
 
-	return <h1>Places</h1>
+	const placesData: InfinitePlaces[] = []
+
+	data?.pages.forEach((el) => placesData.push(...el.data))
+
+	return (
+		<div>
+			<h1>Places</h1>
+			{placesData.map((el) => (
+				<p key={el.id}>{el.title}</p>
+			))}
+		</div>
+	)
 }

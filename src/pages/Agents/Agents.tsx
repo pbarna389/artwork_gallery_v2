@@ -1,6 +1,6 @@
 import { PageLoading } from '@components'
 import { useLoadInfiniteData } from '@hooks'
-import type { AgentType, IncomingDataType } from '@types'
+import type { IncomingDataType } from '@types'
 
 import { INFINITE_AGENT_FIELDS, type InfiniteAgent } from './types'
 
@@ -12,9 +12,18 @@ export const Agents = () => {
 		queryParams
 	)
 
-	console.log(data)
-
 	if (isFetching) return <PageLoading />
 
-	return <h1>Agents</h1>
+	const agentData: InfiniteAgent[] = []
+
+	data?.pages.forEach((el) => agentData.push(...el.data))
+
+	return (
+		<div>
+			<h1>Agents</h1>
+			{agentData.map((el) => (
+				<p key={el.id}>{el.title}</p>
+			))}
+		</div>
+	)
 }

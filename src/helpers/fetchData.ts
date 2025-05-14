@@ -5,9 +5,15 @@ export const fetchData = async <Data>(
 	fields: string[],
 	pageNum = 1
 ): Promise<Data> => {
-	const paramFields = fields.join(',')
+	const searchParams = new URLSearchParams()
 
-	const fullURL = `${API_ENDPOINT}${params}?${paramFields.length && `fields=${paramFields},`}?page=${pageNum}`
+	if (fields.length) {
+		searchParams.append('fields', fields.join(','))
+	}
+
+	searchParams.append('page', pageNum.toString())
+
+	const fullURL = `${API_ENDPOINT}${params}?${searchParams.toString()}`
 
 	const data = await fetch(fullURL)
 
