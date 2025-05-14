@@ -133,6 +133,7 @@ type GalleryStringTypes =
 	| 'latlon'
 	| 'updated_at'
 	| 'number'
+	| 'title'
 type GalleryNumberTypes = 'id' | 'latitude' | 'longitude' | 'tgn_id'
 type GalleryBooleanTypes = 'is_closed'
 

@@ -7,7 +7,8 @@ import type { PaginationType } from '@types'
 //FIXME - INTERCHANGE TO USESUSPENSEINFINITEQUERY
 
 export const useLoadInfiniteData = <DataType extends { pagination: PaginationType }>(
-	queryKey: string
+	queryKey: string,
+	fields: string[]
 ) => {
 	const data = useInfiniteQuery<
 		DataType,
@@ -16,8 +17,8 @@ export const useLoadInfiniteData = <DataType extends { pagination: PaginationTyp
 		string[],
 		number
 	>({
-		queryKey: [queryKey],
-		queryFn: ({ pageParam }) => fetchData(queryKey, pageParam),
+		queryKey: [queryKey, ...fields],
+		queryFn: ({ pageParam }) => fetchData(queryKey, fields, pageParam),
 		initialPageParam: 1,
 		getNextPageParam: (lastPage) => {
 			return lastPage.pagination.current_page

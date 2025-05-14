@@ -1,10 +1,17 @@
 import { PageLoading } from '@components'
 import { useLoadInfiniteData } from '@hooks'
+import type { IncomingDataType } from '@types'
+
+import type { InfinitePlaces } from './types'
+import { INFINITE_PLACE_FIELDS } from './types'
 
 export const Places = () => {
-	const { data, isFetching, error } = useLoadInfiniteData('places')
+	const queryFields = Object.values(INFINITE_PLACE_FIELDS)
 
-	console.log(data)
+	const { data, isFetching } = useLoadInfiniteData<IncomingDataType<InfinitePlaces>>(
+		'places',
+		queryFields
+	)
 
 	if (isFetching) return <PageLoading />
 

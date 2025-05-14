@@ -2,8 +2,15 @@ import { PageLoading } from '@components'
 import { useLoadInfiniteData } from '@hooks'
 import type { AgentType, IncomingDataType } from '@types'
 
+import { INFINITE_AGENT_FIELDS, type InfiniteAgent } from './types'
+
 export const Agents = () => {
-	const { data, isFetching } = useLoadInfiniteData<IncomingDataType<AgentType>>('agents')
+	const queryParams = Object.values(INFINITE_AGENT_FIELDS)
+
+	const { data, isFetching } = useLoadInfiniteData<IncomingDataType<InfiniteAgent>>(
+		'agents',
+		queryParams
+	)
 
 	console.log(data)
 

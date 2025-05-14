@@ -1,10 +1,17 @@
 import { PageLoading } from '@components'
 import { useLoadInfiniteData } from '@hooks'
-import type { GalleryType, IncomingDataType } from '@types'
+import type { IncomingDataType } from '@types'
+
+import type { InfiniteGallery } from './types'
+import { INFINITE_GALLERY_FIELDS } from './types'
 
 export const Galleries = () => {
-	const { data, isFetching } =
-		useLoadInfiniteData<IncomingDataType<GalleryType>>('galleries')
+	const queryFields = Object.values(INFINITE_GALLERY_FIELDS)
+
+	const { data, isFetching } = useLoadInfiniteData<IncomingDataType<InfiniteGallery>>(
+		'galleries',
+		queryFields
+	)
 
 	console.log(data)
 
