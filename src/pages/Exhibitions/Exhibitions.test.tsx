@@ -1,19 +1,56 @@
-import { screen } from '@testing-library/react'
+import { act, prettyDOM, screen } from '@testing-library/react'
 
-import { baseMocks, renderWrapper } from '@testing'
+import { baseMocks, renderWrapper, testQuery } from '@testing'
 
-describe('app component tests', () => {
-	it('should render the App component', async () => {
+const { exhibitions } = baseMocks
+
+vi.stubGlobal(
+	'fetch',
+	vi.fn(() =>
+		Promise.resolve({
+			ok: true,
+			json: async () => {
+				return {
+					data: exhibitions.testQueryMessage,
+					pagination: {
+						current_page: 1,
+						total_pages: 1
+					}
+				}
+			}
+		})
+	)
+)
+
+describe('exhibitions component tests', () => {
+	it('should render the Exhibitions component', async () => {
 		expect.hasAssertions()
-
-		const { exhibitions } = baseMocks
 
 		renderWrapper({ initialEntry: exhibitions.initialRoute })
 
-		const component = screen.getByRole('heading', { level: 1 })
+		await act(async () => {
+			await new Promise((r) => setTimeout(r, 500))
+		})
+
+		const component = await screen.findByRole('heading', { level: 1 })
 
 		expect(component).toBeInTheDocument()
 
 		expect(component).toHaveTextContent(exhibitions.testWord)
+
+		console.log(prettyDOM())
+
+		const cachedData:
+			| {
+					pageParams: number[]
+					pages: { data: string }[]
+			  }
+			| undefined = await testQuery.getQueryData(exhibitions.queryKeys)
+
+		console.log(testQuery.getQueryCache().getAll())
+
+		console.log('Cached Data:', cachedData)
+
+		expect(cachedData?.pages[0].data).toBe(exhibitions.testQueryMessage)
 	})
 })

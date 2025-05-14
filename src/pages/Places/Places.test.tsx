@@ -1,19 +1,51 @@
-import { screen } from '@testing-library/react'
+import { act, screen } from '@testing-library/react'
 
-import { baseMocks, renderWrapper } from '@testing'
+import { baseMocks, renderWrapper, testQuery } from '@testing'
 
-describe('app component tests', () => {
-	it('should render the App component', async () => {
+const { places } = baseMocks
+
+vi.stubGlobal(
+	'fetch',
+	vi.fn(() =>
+		Promise.resolve({
+			ok: true,
+			json: async () => {
+				return {
+					data: places.testQueryMessage,
+					pagination: {
+						current_page: 1,
+						total_pages: 1
+					}
+				}
+			}
+		})
+	)
+)
+
+describe('places component tests', () => {
+	it('should render the Places component', async () => {
 		expect.hasAssertions()
-
-		const { places } = baseMocks
 
 		renderWrapper({ initialEntry: places.initialRoute })
 
-		const component = screen.getByRole('heading', { level: 1 })
+		await act(async () => {
+			await new Promise((r) => setTimeout(r, 500))
+		})
+
+		const component = await screen.findByRole('heading', { level: 1 })
 
 		expect(component).toBeInTheDocument()
 
 		expect(component).toHaveTextContent(places.testWord)
+
+		const cachedData:
+			| {
+					pageParams: number[]
+					pages: { data: string }[]
+			  }
+			| undefined = testQuery.getQueryData(places.queryKeys)
+		console.log('Cached Data:', cachedData)
+
+		expect(cachedData?.pages[0].data).toBe(places.testQueryMessage)
 	})
 })
