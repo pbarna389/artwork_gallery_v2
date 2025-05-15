@@ -23,6 +23,7 @@ export default defineConfig({
 			exclude: [
 				'src/main.tsx',
 				'src/router/**',
+				'src/services/**',
 				'**/*.config.js',
 				'**/*.config.ts',
 				'**/index.ts',
