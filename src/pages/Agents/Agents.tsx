@@ -1,4 +1,4 @@
-import { PageLoading } from '@components'
+import { NavigationLink, PageLoading } from '@components'
 import { useLoadInfiniteData } from '@hooks'
 import type { IncomingDataType } from '@types'
 
@@ -21,9 +21,11 @@ export const Agents = () => {
 	return (
 		<div>
 			<h1>Agents</h1>
-			{agentData.map((el) => (
-				<p key={el.id}>{el.title}</p>
-			))}
+			<ul className="flex flex-col">
+				{agentData.map((el) => (
+					<NavigationLink key={el.id} id={el.id} text={el.title} />
+				))}
+			</ul>
 		</div>
 	)
 }

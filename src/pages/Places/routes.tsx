@@ -4,5 +4,14 @@ import { Places } from './Places'
 
 export const placesRoute: RouteObject = {
 	path: '/places',
-	element: <Places />
+	children: [
+		{
+			index: true,
+			element: <Places />
+		},
+		{
+			path: '/places/:id',
+			element: <h1>Places subpage!</h1>
+		}
+	]
 }

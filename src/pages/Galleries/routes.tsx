@@ -4,5 +4,14 @@ import { Galleries } from './Galleries'
 
 export const galleriesRoute: RouteObject = {
 	path: '/galleries',
-	element: <Galleries />
+	children: [
+		{
+			index: true,
+			element: <Galleries />
+		},
+		{
+			path: '/galleries/:id',
+			element: <h1>Galleries subpage!</h1>
+		}
+	]
 }

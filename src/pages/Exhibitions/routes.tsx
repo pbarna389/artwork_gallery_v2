@@ -4,5 +4,14 @@ import { Exhibitions } from './Exhibitions'
 
 export const exhibtionsRoute: RouteObject = {
 	path: '/exhibitions',
-	element: <Exhibitions />
+	children: [
+		{
+			index: true,
+			element: <Exhibitions />
+		},
+		{
+			path: '/exhibitions/:id',
+			element: <h1>Exhibitions subpage!</h1>
+		}
+	]
 }

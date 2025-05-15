@@ -1,4 +1,4 @@
-import { PageLoading } from '@components'
+import { NavigationLink, PageLoading } from '@components'
 import { useLoadInfiniteData } from '@hooks'
 import type { IncomingDataType } from '@types'
 
@@ -22,9 +22,11 @@ export const Exhibitions = () => {
 	return (
 		<div>
 			<h1>Exhibitions</h1>
-			{exhibitionsData.map((el) => (
-				<p key={el.id}>{el.title}</p>
-			))}
+			<ul className="flex flex-col">
+				{exhibitionsData.map((el) => (
+					<NavigationLink key={el.id} id={el.id} text={el.title} />
+				))}
+			</ul>
 		</div>
 	)
 }
