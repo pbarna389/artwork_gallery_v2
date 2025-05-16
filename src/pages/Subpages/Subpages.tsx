@@ -8,6 +8,9 @@ import {
 	PlacesDetailsPage
 } from './DetailPages'
 
+//TODO - ADD THE LOGIC FOR THE SUBPAGES
+//TODO - CREATE THE TESTS!
+
 export const Subpages = () => {
 	const { pathname } = useLocation()
 

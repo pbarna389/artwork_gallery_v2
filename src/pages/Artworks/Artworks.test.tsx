@@ -1,4 +1,4 @@
-import { act, prettyDOM, screen } from '@testing-library/react'
+import { act, screen } from '@testing-library/react'
 
 import { baseMocks, renderWrapper, testQuery } from '@testing'
 
