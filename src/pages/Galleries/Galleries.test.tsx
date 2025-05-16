@@ -23,7 +23,7 @@ vi.stubGlobal(
 )
 
 describe('galleries component tests', () => {
-	it('should render the Galleries component', async () => {
+	it('should render the galleries component', async () => {
 		expect.hasAssertions()
 
 		renderWrapper({ initialEntry: galleries.initialRoute })
@@ -41,7 +41,7 @@ describe('galleries component tests', () => {
 		const cachedData:
 			| {
 					pageParams: number[]
-					pages: { data: string }[]
+					pages: { data: typeof galleries.testQueryMessage }[]
 			  }
 			| undefined = await testQuery.getQueryData(galleries.queryKeys)
 

@@ -1,0 +1,5 @@
+export { AgentDetailsPage } from './AgentDetailsPage'
+export { ArtworkDetailsPage } from './ArtworkDetailsPage'
+export { ExhibitionDetailsPage } from './ExhibitionsDetailsPage'
+export { GalleryDetailsPage } from './GalleryDetailsPage'
+export { PlacesDetailsPage } from './PlacesDetailsPage'

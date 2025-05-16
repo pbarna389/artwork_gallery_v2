@@ -19,8 +19,6 @@ export const Artworks = () => {
 
 	data?.pages.forEach((el) => artworkData.push(...el.data))
 
-	console.log(data)
-
 	return (
 		<div>
 			<h1>Artworks</h1>

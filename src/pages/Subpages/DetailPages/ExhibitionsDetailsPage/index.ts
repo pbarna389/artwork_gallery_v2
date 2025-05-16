@@ -1,0 +1,1 @@
+export { ExhibitionDetailsPage } from './ExhibitionsDetailsPage'

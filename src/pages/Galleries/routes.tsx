@@ -11,7 +11,7 @@ export const galleriesRoute: RouteObject = {
 		},
 		{
 			path: '/galleries/:id',
-			element: <h1>Galleries subpage!</h1>
+			element: <h1>Galleries subpage</h1>
 		}
 	]
 }

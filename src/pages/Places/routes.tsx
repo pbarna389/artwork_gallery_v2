@@ -1,6 +1,7 @@
 import type { RouteObject } from 'react-router'
 
 import { Places } from './Places'
+import { Subpages } from '../Subpages'
 
 export const placesRoute: RouteObject = {
 	path: '/places',
@@ -11,7 +12,7 @@ export const placesRoute: RouteObject = {
 		},
 		{
 			path: '/places/:id',
-			element: <h1>Places subpage!</h1>
+			element: <Subpages />
 		}
 	]
 }

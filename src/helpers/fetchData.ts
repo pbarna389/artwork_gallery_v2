@@ -1,29 +1,42 @@
 import { API_ENDPOINT } from '@constants'
 import type { IncomingDataType } from '@types'
 
+type FetchOptions = {
+	endpoint: string
+	params: {
+		fields?: string[]
+		id?: string
+	}
+	hasImage?: boolean
+	pageNum?: number
+}
+
 export const fetchData = async <
 	Data extends object,
-	ExtendedType extends IncomingDataType<Data>
->(
-	params: string,
-	fields: string[],
-	pageNum = 1,
+	ExtendedType extends Omit<IncomingDataType<Data>, 'pagination'>
+>({
+	endpoint,
+	params,
+	pageNum,
 	hasImage = false
-	// eslint-disable-next-line @typescript-eslint/max-params
-) => {
+}: FetchOptions) => {
 	const searchParams = new URLSearchParams()
 
-	if (fields.length) {
-		searchParams.append('fields', fields.join(','))
+	if (params.fields?.length) {
+		searchParams.append('fields', params.fields.join(','))
 	}
 
-	searchParams.append('page', pageNum.toString())
+	if (pageNum) {
+		searchParams.append('page', pageNum.toString())
+	}
 
-	const fullURL = `${API_ENDPOINT}${params}?${searchParams.toString()}`
+	const fullURL = params.id
+		? `${API_ENDPOINT}${endpoint}/${params.id}`
+		: `${API_ENDPOINT}${endpoint}?${searchParams.toString()}`
 
 	const incomingData = await fetch(fullURL)
 
-	if (!incomingData.ok) {
+	if (!incomingData.ok || incomingData.status === 400) {
 		throw new Error(`fetching went wrong, code: ${incomingData.status}`)
 	}
 

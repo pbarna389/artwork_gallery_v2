@@ -42,16 +42,12 @@ describe('artworks component tests', () => {
 
 		expect(component).toHaveTextContent(artworks.testWord)
 
-		console.log(prettyDOM())
-
 		const cachedData:
 			| {
 					pageParams: number[]
 					pages: { data: typeof artworks.testQueryMessage }[]
 			  }
 			| undefined = await testQuery.getQueryData(artworks.queryKeys)
-
-		console.log(testQuery.getQueryCache().getAll())
 
 		console.log('Cached Data:', cachedData)
 

@@ -1,6 +1,7 @@
 import type { RouteObject } from 'react-router'
 
 import { Artworks } from './Artworks'
+import { Subpages } from '../Subpages'
 
 export const artworksRoute: RouteObject = {
 	path: '/artworks',
@@ -11,7 +12,7 @@ export const artworksRoute: RouteObject = {
 		},
 		{
 			path: '/artworks/:id',
-			element: <h1>Artwork subpage!</h1>
+			element: <Subpages />
 		}
 	]
 }

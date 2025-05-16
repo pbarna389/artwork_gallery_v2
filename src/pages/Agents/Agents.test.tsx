@@ -45,8 +45,6 @@ describe('agents component tests', () => {
 			  }
 			| undefined = await testQuery.getQueryData(agents.queryKeys)
 
-		console.log(testQuery.getQueryCache().getAll())
-
 		console.log('Cached Data:', cachedData)
 
 		expect(cachedData?.pages[0].data).toBe(agents.testQueryMessage)

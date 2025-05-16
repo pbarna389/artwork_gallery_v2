@@ -9,7 +9,7 @@ export const useLoadInfiniteData = <
 	ExtendedType extends IncomingDataType<DataType>
 >(
 	queryKey: string,
-	fields: string[],
+	params: string[],
 	hasImage = false
 ) => {
 	const data = useInfiniteQuery<
@@ -19,8 +19,14 @@ export const useLoadInfiniteData = <
 		(string | boolean)[],
 		number
 	>({
-		queryKey: [queryKey, ...fields, hasImage],
-		queryFn: ({ pageParam }) => fetchData(queryKey, fields, pageParam, hasImage),
+		queryKey: [queryKey, ...params, hasImage],
+		queryFn: ({ pageParam }) =>
+			fetchData({
+				endpoint: queryKey,
+				params: { fields: params },
+				pageNum: pageParam ? pageParam : 1,
+				hasImage
+			}),
 		initialPageParam: 1,
 		getNextPageParam: (lastPage) => {
 			return lastPage.pagination.current_page + 1

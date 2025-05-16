@@ -11,3 +11,7 @@ expect.extend(matchers)
 afterEach(() => {
 	cleanup()
 })
+
+afterAll(() => {
+	cleanup()
+})

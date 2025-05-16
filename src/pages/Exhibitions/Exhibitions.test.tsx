@@ -1,4 +1,4 @@
-import { act, prettyDOM, screen } from '@testing-library/react'
+import { act, screen } from '@testing-library/react'
 
 import { baseMocks, renderWrapper, testQuery } from '@testing'
 
@@ -38,16 +38,12 @@ describe('exhibitions component tests', () => {
 
 		expect(component).toHaveTextContent(exhibitions.testWord)
 
-		console.log(prettyDOM())
-
 		const cachedData:
 			| {
 					pageParams: number[]
 					pages: { data: typeof exhibitions.testQueryMessage }[]
 			  }
 			| undefined = await testQuery.getQueryData(exhibitions.queryKeys)
-
-		console.log(testQuery.getQueryCache().getAll())
 
 		console.log('Cached Data:', cachedData)
 
