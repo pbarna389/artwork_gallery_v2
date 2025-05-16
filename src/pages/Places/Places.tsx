@@ -8,10 +8,10 @@ import { INFINITE_PLACE_FIELDS } from './types'
 export const Places = () => {
 	const queryFields = Object.values(INFINITE_PLACE_FIELDS)
 
-	const { data, isFetching } = useLoadInfiniteData<IncomingDataType<InfinitePlaces>>(
-		'places',
-		queryFields
-	)
+	const { data, isFetching } = useLoadInfiniteData<
+		InfinitePlaces,
+		IncomingDataType<InfinitePlaces>
+	>('places', queryFields)
 
 	if (isFetching) return <PageLoading />
 

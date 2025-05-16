@@ -11,6 +11,10 @@ vi.stubGlobal(
 			ok: true,
 			json: async () => {
 				return {
+					config: {
+						iiif_url: 'https://www.artic.edu/iiif/2',
+						website_url: 'http://www.artic.edu'
+					},
 					data: artworks.testQueryMessage,
 					pagination: {
 						current_page: 1,
@@ -43,7 +47,7 @@ describe('artworks component tests', () => {
 		const cachedData:
 			| {
 					pageParams: number[]
-					pages: { data: string }[]
+					pages: { data: typeof artworks.testQueryMessage }[]
 			  }
 			| undefined = await testQuery.getQueryData(artworks.queryKeys)
 
@@ -51,6 +55,6 @@ describe('artworks component tests', () => {
 
 		console.log('Cached Data:', cachedData)
 
-		expect(cachedData?.pages[0].data).toBe(artworks.testQueryMessage)
+		expect(cachedData?.pages[0].data[0].title).toBe(artworks.testQueryMessage[0].title)
 	})
 })

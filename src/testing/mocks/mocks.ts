@@ -6,7 +6,7 @@ export const baseMocks = {
 	agents: {
 		initialRoute: '/agents',
 		testWord: 'Agents',
-		queryKeys: ['agents', 'title', 'id'],
+		queryKeys: ['agents', 'title', 'id', false],
 		testQueryMessage: [
 			{
 				id: 1,
@@ -17,10 +17,11 @@ export const baseMocks = {
 	artworks: {
 		initialRoute: '/artworks',
 		testWord: 'Artworks',
-		queryKeys: ['artworks', 'title', 'id', 'image_id'],
+		queryKeys: ['artworks', 'title', 'id', 'image_id', true],
 		testQueryMessage: [
 			{
 				id: 1,
+				img_url: 'asdfasgfsdgkgélsdfkgsdgk',
 				title: 'mocked data will come here for the artworks endpoint'
 			}
 		]
@@ -28,7 +29,7 @@ export const baseMocks = {
 	exhibitions: {
 		initialRoute: '/exhibitions',
 		testWord: 'Exhibitions',
-		queryKeys: ['exhibitions', 'title', 'id'],
+		queryKeys: ['exhibitions', 'title', 'id', 'image_url', false],
 		testQueryMessage: [
 			{
 				id: 1,
@@ -39,7 +40,7 @@ export const baseMocks = {
 	galleries: {
 		initialRoute: '/galleries',
 		testWord: 'Galleries',
-		queryKeys: ['galleries', 'title', 'id'],
+		queryKeys: ['galleries', 'title', 'id', false],
 		testQueryMessage: [
 			{
 				id: 1,
@@ -50,7 +51,7 @@ export const baseMocks = {
 	places: {
 		initialRoute: '/places',
 		testWord: 'Places',
-		queryKeys: ['places', 'title', 'id'],
+		queryKeys: ['places', 'title', 'id', false],
 		testQueryMessage: [
 			{ id: 1, title: 'mocked data will come here for the places endpoint' }
 		]

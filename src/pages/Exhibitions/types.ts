@@ -1,10 +1,11 @@
-import type { AgentType } from '@types'
+import type { ExhibitionType } from '@types'
 
 export enum INFINITE_EXHIBITION_FIELDS {
 	title = 'title',
-	id = 'id'
+	id = 'id',
+	image_url = 'image_url'
 }
 
 type ExhibitionFields = keyof typeof INFINITE_EXHIBITION_FIELDS
 
-export type InfiniteExhibition = Pick<AgentType, ExhibitionFields>
+export type InfiniteExhibition = Pick<ExhibitionType, ExhibitionFields>

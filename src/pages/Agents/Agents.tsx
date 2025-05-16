@@ -7,10 +7,10 @@ import { INFINITE_AGENT_FIELDS, type InfiniteAgent } from './types'
 export const Agents = () => {
 	const queryParams = Object.values(INFINITE_AGENT_FIELDS)
 
-	const { data, isFetching } = useLoadInfiniteData<IncomingDataType<InfiniteAgent>>(
-		'agents',
-		queryParams
-	)
+	const { data, isFetching } = useLoadInfiniteData<
+		InfiniteAgent,
+		IncomingDataType<InfiniteAgent>
+	>('agents', queryParams)
 
 	if (isFetching) return <PageLoading />
 

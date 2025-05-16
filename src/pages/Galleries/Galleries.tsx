@@ -8,10 +8,10 @@ import { INFINITE_GALLERY_FIELDS } from './types'
 export const Galleries = () => {
 	const queryFields = Object.values(INFINITE_GALLERY_FIELDS)
 
-	const { data, isFetching } = useLoadInfiniteData<IncomingDataType<InfiniteGallery>>(
-		'galleries',
-		queryFields
-	)
+	const { data, isFetching } = useLoadInfiniteData<
+		InfiniteGallery,
+		IncomingDataType<InfiniteGallery>
+	>('galleries', queryFields)
 
 	if (isFetching) return <PageLoading />
 

@@ -43,7 +43,7 @@ describe('exhibitions component tests', () => {
 		const cachedData:
 			| {
 					pageParams: number[]
-					pages: { data: string }[]
+					pages: { data: typeof exhibitions.testQueryMessage }[]
 			  }
 			| undefined = await testQuery.getQueryData(exhibitions.queryKeys)
 

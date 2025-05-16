@@ -75,6 +75,7 @@ export type StringTypes = {
 	floor: string
 	gallery_title: string | null
 	iiif_url: string
+	image_id: string
 	image_url: string
 	inscriptions: string
 	latlon: string | null
@@ -125,7 +126,6 @@ export type NumberTypes = {
 	h: number
 	height: number
 	id: number
-	image_id: number
 	internal_department_id: number
 	l: number
 	latitude: number | null
